@@ -7,10 +7,7 @@ from app.services.game_service import update_game_catalogue
 from app.integrations.rawg import search_games
 from app.integrations.gamerpower import get_free_games
 from app.integrations.cheapshark import get_game_deals
-from app.database import Base, engine
-import app.models  # ensures the Game model is registered with Base
 
-Base.metadata.create_all(bind=engine)
 
 BG = "rgba(0,0,0,0)"
 
