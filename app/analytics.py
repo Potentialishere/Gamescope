@@ -2,8 +2,11 @@ import pandas as pd
 from app.database import get_connection
 
 def load_games():
-    with get_connection() as conn:
-        return pd.read_sql_query("SELECT * FROM games", conn)
+    try:
+        with get_connection() as conn:
+            return pd.read_sql_query("SELECT * FROM games", conn)
+    except Exception:
+        return pd.DataFrame()
 
 if __name__ == "__main__":
     df = load_games()
